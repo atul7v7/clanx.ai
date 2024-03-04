@@ -1,0 +1,28 @@
+version: '3'
+services:
+  clanx.ai-backend:
+    container_name: clanx.ai-backend
+    build: .
+    image: clanx.ai-image
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql
+  mysql:
+    container_name: clanx-mysql-container
+    image: mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3001:3306
+    volumes:
+      - clanx.ai-mysql:/data/db
+volumes:
+  clanx.ai-mysql:
+  clanx.ai-app:

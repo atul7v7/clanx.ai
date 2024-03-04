@@ -1,0 +1,5 @@
+export declare enum EnvNamespace {
+    APP_CONFIG = "APP_CONFIG",
+    RATE_LIMITTER_CONFIG = "RATE_LIMITTER_CONFIG",
+    OPEN_WEATHER_CONFIG = "OPEN_WEATHER_CONFIG"
+}
